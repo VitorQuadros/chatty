@@ -6,9 +6,22 @@ class SettingsController {
     const { chat, username } = req.body;
 
     const settingsService = new SettingsService();
-    const settings = await settingsService.create({ chat, username });
 
-    return res.json(settings);
+    try {
+      const settings = await settingsService.create({ chat, username });
+
+      return res.status(200).json({
+        status: 'success',
+        data: {
+          settings,
+        },
+      });
+    } catch (err) {
+      return res.status(400).json({
+        status: 'error',
+        message: err.message,
+      });
+    }
   }
 }
 
