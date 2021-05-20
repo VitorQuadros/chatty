@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { MessagesService } from '../services/MessagesService';
 
 class MessagesController {
-  async create(req: Request, res: Response) {
+  async create(req: Request, res: Response): Promise<Response> {
     const { admin_id, text, user_id } = req.body;
     const messagesService = new MessagesService();
 
