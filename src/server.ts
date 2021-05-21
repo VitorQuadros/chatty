@@ -4,8 +4,14 @@ import { Server, Socket } from 'socket.io';
 
 import './database';
 import { routes } from './routes';
+import path from 'path';
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.set('views', path.join(__dirname, '..', 'public'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 const http = createServer(app); // create http protocol
 const io = new Server(http); // create ws protocol
