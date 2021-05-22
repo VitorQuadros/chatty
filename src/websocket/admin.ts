@@ -34,4 +34,8 @@ io.on('connect', async (socket) => {
       socket_id: socket.id,
     });
   });
+
+  socket.on('admin_user_in_support', (params) => {
+    const { user_id } = params;
+  });
 });
