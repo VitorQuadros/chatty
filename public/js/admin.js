@@ -59,7 +59,7 @@ function call(id) {
       } else {
         createDiv.className = 'admin_message_admin';
 
-        createDiv.innerHTML = `Atendente: <span>${message.text}</span>`;
+        createDiv.innerHTML = `Assistant: <span>${message.text}</span>`;
         createDiv.innerHTML += `<span class="admin_date>${dayjs(
           message.created_at
         ).format('DD/MM/YYYY HH:mm:ss')}`;
@@ -84,7 +84,7 @@ function sendMessage(id) {
 
   const createDiv = document.createElement('div');
   createDiv.className = 'admin_message_admin';
-  createDiv.innerHTML = `Atendente: <span>${params.text}</span>`;
+  createDiv.innerHTML = `Assistant: <span>${params.text}</span>`;
   createDiv.innerHTML += `<span class="admin_date>${dayjs().format(
     'DD/MM/YYYY HH:mm:ss'
   )}`;
